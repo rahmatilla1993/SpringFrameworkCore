@@ -5,11 +5,11 @@ public class City {
     private int numberOfPeople;
     private long size;
 
-    public City(String name, int numberOfPeople, long size) {
-        this.name = name;
-        this.numberOfPeople = numberOfPeople;
-        this.size = size;
-    }
+//    public City(String name, int numberOfPeople, long size) {
+//        this.name = name;
+//        this.numberOfPeople = numberOfPeople;
+//        this.size = size;
+//    }
 
     public String getName() {
         return name;

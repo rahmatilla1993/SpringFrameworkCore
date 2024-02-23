@@ -8,6 +8,11 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
+//        xml();
+
+    }
+
+    private static void xml() {
         try (var context = new ClassPathXmlApplicationContext("settings.xml")) {
             City city = context.getBean(City.class);
             System.out.println(city);
