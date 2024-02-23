@@ -1,15 +1,23 @@
 package org.example.beans;
 
-public class City {
-    private String name;
-    private int numberOfPeople;
-    private long size;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
 
-//    public City(String name, int numberOfPeople, long size) {
-//        this.name = name;
-//        this.numberOfPeople = numberOfPeople;
-//        this.size = size;
-//    }
+@Component
+@Scope("prototype")
+@PropertySource("classpath:city.properties")
+public class City {
+
+    @Value("${city.name}")
+    private String name;
+
+    @Value("${city.number_of_people}")
+    private int numberOfPeople;
+
+    @Value("${city.size}")
+    private long size;
 
     public String getName() {
         return name;
