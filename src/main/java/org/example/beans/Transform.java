@@ -13,7 +13,7 @@ public class Transform {
                 System.out.println(i);
             }
         } else {
-            throw new RuntimeException("Exception occurred!");
+            throw new RuntimeException("Runtime exception occurred!");
         }
     }
 }

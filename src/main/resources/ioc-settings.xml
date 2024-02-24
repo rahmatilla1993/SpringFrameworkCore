@@ -10,7 +10,8 @@
         <aop:aspect ref="transformAspect">
             <aop:before method="beforeStart" pointcut="execution(* org.example.beans.Transform.start(..))"/>
             <aop:after-returning method="afterRun" pointcut="execution(* org.example.beans.Transform.start())"/>
-            <aop:after-throwing method="afterThrow" pointcut="execution(* org.example.beans.Transform.start())"/>
+            <aop:after-throwing throwing="exception" method="afterThrow"
+                                pointcut="execution(* org.example.beans.Transform.start())"/>
         </aop:aspect>
     </aop:config>
 
