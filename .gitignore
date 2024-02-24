@@ -36,3 +36,20 @@ build/
 
 ### Mac OS ###
 .DS_Store
+/out/artifacts/Tomcat/WEB-INF/lib/jakarta.servlet-api-6.0.0.jar
+/out/artifacts/Tomcat/WEB-INF/lib/lombok-1.18.30.jar
+/out/artifacts/Tomcat/WEB-INF/lib/micrometer-commons-1.12.1.jar
+/out/artifacts/Tomcat/WEB-INF/lib/micrometer-observation-1.12.1.jar
+/out/artifacts/Tomcat/WEB-INF/lib/spring-aop-6.1.2.jar
+/out/artifacts/Tomcat/WEB-INF/lib/spring-beans-6.1.2.jar
+/out/artifacts/Tomcat/WEB-INF/lib/spring-context-6.1.2.jar
+/out/artifacts/Tomcat/WEB-INF/lib/spring-core-6.1.2.jar
+/out/artifacts/Tomcat/WEB-INF/lib/spring-expression-6.1.2.jar
+/out/artifacts/Tomcat/WEB-INF/lib/spring-jcl-6.1.2.jar
+/out/artifacts/Tomcat/WEB-INF/lib/spring-web-6.1.2.jar
+/out/artifacts/Tomcat/WEB-INF/lib/spring-webmvc-6.1.2.jar
+/out/artifacts/Tomcat/WEB-INF/classes/org/example/domain/Todo$TodoBuilder.class
+/out/artifacts/Tomcat/WEB-INF/classes/org/example/domain/Todo.class
+/out/artifacts/Tomcat/WEB-INF/classes/org/example/controller/TodoController.class
+/out/artifacts/Tomcat/WEB-INF/classes/org/example/config/DispatcherServletInitializer.class
+/out/artifacts/Tomcat/WEB-INF/classes/org/example/config/WebMvcConfiguration.class
