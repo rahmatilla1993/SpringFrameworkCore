@@ -61,3 +61,8 @@ build/
 /out/artifacts/Tomcat/WEB-INF/lib/thymeleaf-3.1.2.RELEASE.jar
 /out/artifacts/Tomcat/WEB-INF/lib/thymeleaf-spring6-3.1.2.RELEASE.jar
 /out/artifacts/Tomcat/WEB-INF/lib/unbescape-1.1.6.RELEASE.jar
+/out/artifacts/Tomcat/WEB-INF/classes/templates/fragments.html
+/out/artifacts/Tomcat/WEB-INF/classes/templates/todo_add.html
+/out/artifacts/Tomcat/WEB-INF/classes/templates/todo_edit.html
+/out/artifacts/Tomcat/WEB-INF/classes/org/example/dto/TodoDto.class
+/out/artifacts/Tomcat/WEB-INF/classes/templates/todos.html
