@@ -4,19 +4,23 @@ import org.example.domain.Todo;
 import org.example.dto.TodoDto;
 import org.example.rowmapper.TodoRowMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @Component
 public class TodoDao {
 
-    private final JdbcTemplate jdbcTemplate;
+    private final NamedParameterJdbcTemplate jdbcTemplate;
 
     @Autowired
-    public TodoDao(JdbcTemplate jdbcTemplate) {
+    public TodoDao(NamedParameterJdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
 
@@ -25,25 +29,29 @@ public class TodoDao {
     }
 
     public Optional<Todo> getOne(int id) {
-        Todo todo = jdbcTemplate.queryForObject("select * from todo where id = ?", new TodoRowMapper(), id);
+        Todo todo = jdbcTemplate.queryForObject(
+                "select * from todo where id = :id",
+                Map.of("id", id),
+                new TodoRowMapper()
+        );
         return Optional.ofNullable(todo);
     }
 
     public void save(TodoDto dto) {
-        jdbcTemplate.update(con -> {
-            var prst = con.prepareStatement("insert into todo(title, priority) values (?, ?)");
-            prst.setString(1, dto.title());
-            prst.setString(2, dto.priority());
-            return prst;
-        });
+        String sql = "insert into todo(title, priority) values (:title, :priority)";
+        SqlParameterSource parameterSource = new MapSqlParameterSource()
+                .addValue("title", dto.title())
+                .addValue("priority", dto.priority());
+        jdbcTemplate.update(sql, parameterSource);
     }
 
     public void update(Todo todo) {
-        jdbcTemplate.update("update todo set title = ?, priority = ? where id = ?",
-                todo.getTitle(), todo.getPriority(), todo.getId());
+        String sql = "update todo set title = :title, priority = :priority where id = :id";
+        SqlParameterSource parameterSource = new BeanPropertySqlParameterSource(todo);
+        jdbcTemplate.update(sql, parameterSource);
     }
 
     public void delete(int id) {
-        jdbcTemplate.update("delete from todo where id = ?", id);
+        jdbcTemplate.update("delete from todo where id = :id", Map.of("id", id));
     }
 }
