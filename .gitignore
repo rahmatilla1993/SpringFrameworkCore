@@ -66,3 +66,12 @@ build/
 /out/artifacts/Tomcat/WEB-INF/classes/templates/todo_edit.html
 /out/artifacts/Tomcat/WEB-INF/classes/org/example/dto/TodoDto.class
 /out/artifacts/Tomcat/WEB-INF/classes/templates/todos.html
+/out/artifacts/Tomcat/WEB-INF/classes/datasource.properties
+/out/artifacts/Tomcat/WEB-INF/classes/ioc-datasource.xml
+/out/artifacts/Tomcat/WEB-INF/classes/templates/todo_delete.html
+/out/artifacts/Tomcat/WEB-INF/classes/org/example/rowmapper/TodoRowMapper.class
+/out/artifacts/Tomcat/WEB-INF/lib/checker-qual-3.31.0.jar
+/out/artifacts/Tomcat/WEB-INF/lib/postgresql-42.6.0.jar
+/out/artifacts/Tomcat/WEB-INF/lib/spring-jdbc-6.1.2.jar
+/out/artifacts/Tomcat/WEB-INF/lib/spring-tx-6.1.2.jar
+/out/artifacts/Tomcat/WEB-INF/classes/org/example/dao/TodoDao.class

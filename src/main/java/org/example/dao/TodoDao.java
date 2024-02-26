@@ -5,19 +5,23 @@ import org.example.dto.TodoDto;
 import org.example.rowmapper.TodoRowMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @Component
 public class TodoDao {
 
     private final JdbcTemplate jdbcTemplate;
+    private final SimpleJdbcInsert simpleJdbcInsert;
 
     @Autowired
     public TodoDao(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
+        simpleJdbcInsert = new SimpleJdbcInsert(jdbcTemplate).withTableName("todo");
     }
 
     public List<Todo> getAll() {
@@ -36,6 +40,16 @@ public class TodoDao {
             prst.setString(2, dto.priority());
             return prst;
         });
+    }
+
+    public void save2(TodoDto dto) {
+        Map<String, String> map = Map.of(
+                "title", dto.title(),
+                "priority", dto.priority()
+        );
+        simpleJdbcInsert
+                .usingColumns("title", "priority")
+                .execute(map);
     }
 
     public void update(Todo todo) {

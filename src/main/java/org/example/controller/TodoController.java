@@ -49,7 +49,7 @@ public class TodoController {
 
     @PostMapping("/add")
     public String addTodo(@ModelAttribute("dto") TodoDto dto) {
-        todoDao.save(dto);
+        todoDao.save2(dto);
         return "redirect:/todo/all";
     }
 
